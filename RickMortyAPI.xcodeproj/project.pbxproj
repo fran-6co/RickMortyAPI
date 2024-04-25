@@ -11,6 +11,8 @@
 		A103175D2BDAAE76003FD6D4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A103175C2BDAAE76003FD6D4 /* ContentView.swift */; };
 		A103175F2BDAAE79003FD6D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A103175E2BDAAE79003FD6D4 /* Assets.xcassets */; };
 		A10317622BDAAE79003FD6D4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A10317612BDAAE79003FD6D4 /* Preview Assets.xcassets */; };
+		A10317692BDAAF04003FD6D4 /* CharacterModelDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10317682BDAAF04003FD6D4 /* CharacterModelDTO.swift */; };
+		A103176B2BDAB369003FD6D4 /* CharacterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A103176A2BDAB369003FD6D4 /* CharacterInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		A103175C2BDAAE76003FD6D4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A103175E2BDAAE79003FD6D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A10317612BDAAE79003FD6D4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A10317682BDAAF04003FD6D4 /* CharacterModelDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModelDTO.swift; sourceTree = "<group>"; };
+		A103176A2BDAB369003FD6D4 /* CharacterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +55,11 @@
 		A10317592BDAAE76003FD6D4 /* RickMortyAPI */ = {
 			isa = PBXGroup;
 			children = (
-				A103175A2BDAAE76003FD6D4 /* RickMortyAPIApp.swift */,
 				A103175C2BDAAE76003FD6D4 /* ContentView.swift */,
+				A103176E2BDAB38E003FD6D4 /* ViewModel */,
+				A103176D2BDAB37E003FD6D4 /* Interactor */,
+				A103176C2BDAB36E003FD6D4 /* Model */,
+				A103176F2BDAB3AA003FD6D4 /* System */,
 				A103175E2BDAAE79003FD6D4 /* Assets.xcassets */,
 				A10317602BDAAE79003FD6D4 /* Preview Content */,
 			);
@@ -65,6 +72,37 @@
 				A10317612BDAAE79003FD6D4 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		A103176C2BDAB36E003FD6D4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A10317682BDAAF04003FD6D4 /* CharacterModelDTO.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A103176D2BDAB37E003FD6D4 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				A103176A2BDAB369003FD6D4 /* CharacterInteractor.swift */,
+			);
+			name = Interactor;
+			sourceTree = "<group>";
+		};
+		A103176E2BDAB38E003FD6D4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		A103176F2BDAB3AA003FD6D4 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				A103175A2BDAAE76003FD6D4 /* RickMortyAPIApp.swift */,
+			);
+			name = System;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +175,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A103176B2BDAB369003FD6D4 /* CharacterInteractor.swift in Sources */,
+				A10317692BDAAF04003FD6D4 /* CharacterModelDTO.swift in Sources */,
 				A103175D2BDAAE76003FD6D4 /* ContentView.swift in Sources */,
 				A103175B2BDAAE76003FD6D4 /* RickMortyAPIApp.swift in Sources */,
 			);
