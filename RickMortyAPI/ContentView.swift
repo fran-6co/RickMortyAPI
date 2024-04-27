@@ -21,5 +21,6 @@ struct ContentView: View {
 }
 
 #Preview {
+//    ContentView()
     ContentView(vm: CharacterListViewModel(characterInteractor: TestCharacterInteractor()))
 }
