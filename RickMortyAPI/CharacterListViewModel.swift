@@ -13,7 +13,7 @@ final class CharacterListViewModel: ObservableObject {
     
     @Published var characters: [RMCharacterDTO] = []
     
-    init(characterInteractor: CharacterInteractorProtocol) {
+    init(characterInteractor: CharacterInteractorProtocol = CharacterInteractor.shared) {
         self.characterInteractor = characterInteractor
         Task { await getCharacters() }
     }

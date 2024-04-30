@@ -17,6 +17,9 @@
 		A18DF3322BDC098C004B2765 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18DF3312BDC098C004B2765 /* NetworkError.swift */; };
 		A18DF3342BDC0CA9004B2765 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18DF3332BDC0CA9004B2765 /* PreviewData.swift */; };
 		A18DF3362BDC101E004B2765 /* RYM.json in Resources */ = {isa = PBXBuildFile; fileRef = A18DF3352BDC101E004B2765 /* RYM.json */; };
+		A1BABD232BE14642009024FE /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BABD222BE14642009024FE /* URL.swift */; };
+		A1BABD252BE14B13009024FE /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BABD242BE14B13009024FE /* URLSession.swift */; };
+		A1BABD272BE15114009024FE /* NetworkInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BABD262BE15114009024FE /* NetworkInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 		A18DF3312BDC098C004B2765 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		A18DF3332BDC0CA9004B2765 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		A18DF3352BDC101E004B2765 /* RYM.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RYM.json; sourceTree = "<group>"; };
+		A1BABD222BE14642009024FE /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		A1BABD242BE14B13009024FE /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
+		A1BABD262BE15114009024FE /* NetworkInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +127,9 @@
 			isa = PBXGroup;
 			children = (
 				A18DF3312BDC098C004B2765 /* NetworkError.swift */,
+				A1BABD222BE14642009024FE /* URL.swift */,
+				A1BABD242BE14B13009024FE /* URLSession.swift */,
+				A1BABD262BE15114009024FE /* NetworkInteractor.swift */,
 			);
 			name = Interface;
 			sourceTree = "<group>";
@@ -209,8 +218,11 @@
 				A10317692BDAAF04003FD6D4 /* CharacterModelDTO.swift in Sources */,
 				A18DF3322BDC098C004B2765 /* NetworkError.swift in Sources */,
 				A18DF3342BDC0CA9004B2765 /* PreviewData.swift in Sources */,
+				A1BABD252BE14B13009024FE /* URLSession.swift in Sources */,
 				A103175D2BDAAE76003FD6D4 /* ContentView.swift in Sources */,
+				A1BABD272BE15114009024FE /* NetworkInteractor.swift in Sources */,
 				A103175B2BDAAE76003FD6D4 /* RickMortyAPIApp.swift in Sources */,
+				A1BABD232BE14642009024FE /* URL.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @ObservedObject var vm = CharacterListViewModel(characterInteractor: CharacterInteractor.shared)
+    @ObservedObject var vm = CharacterListViewModel()
     
     var body: some View {
         List {
@@ -22,5 +22,5 @@ struct ContentView: View {
 
 #Preview {
 //    ContentView()
-    ContentView(vm: CharacterListViewModel(characterInteractor: TestCharacterInteractor()))
+    ContentView(vm: .previewVM)
 }

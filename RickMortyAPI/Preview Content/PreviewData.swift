@@ -7,6 +7,10 @@
 
 import Foundation
 
+extension CharacterListViewModel {
+    static let previewVM = CharacterListViewModel(characterInteractor: TestCharacterInteractor())
+}
+
 struct TestCharacterInteractor: CharacterInteractorProtocol {
     func fetchCharacters() async throws -> CharacterResponseDTO {
         CharacterResponseDTO(info: Info(count: 69, pages: 420, next: "hola", prev: "hola"), results: getTestJSON())
