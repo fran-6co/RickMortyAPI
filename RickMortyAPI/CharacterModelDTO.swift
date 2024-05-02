@@ -36,12 +36,21 @@ enum Gender: String, Codable {
     case female = "Female"
     case male = "Male"
     case unknown = "unknown"
+    case genderless = "Genderless"
 }
 
 // MARK: - Location
 enum Species: String, Codable {
     case alien = "Alien"
     case human = "Human"
+    case humanoid = "Humanoid"
+    case mythologicalCreature = "Mythological Creature"
+    case animal = "Animal"
+    case robot = "Robot"
+    case poopybutthole = "Poopybutthole"
+    case cronenberg = "Cronenberg"
+    case disease = "Disease"
+    case unknown = "unknown"
 }
 
 enum Status: String, Codable {

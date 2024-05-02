@@ -20,6 +20,7 @@
 		A1BABD232BE14642009024FE /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BABD222BE14642009024FE /* URL.swift */; };
 		A1BABD252BE14B13009024FE /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BABD242BE14B13009024FE /* URLSession.swift */; };
 		A1BABD272BE15114009024FE /* NetworkInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BABD262BE15114009024FE /* NetworkInteractor.swift */; };
+		A1DB065F2BE3F29C008B3A12 /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DB065E2BE3F29C008B3A12 /* URLRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		A1BABD222BE14642009024FE /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		A1BABD242BE14B13009024FE /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
 		A1BABD262BE15114009024FE /* NetworkInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInteractor.swift; sourceTree = "<group>"; };
+		A1DB065E2BE3F29C008B3A12 /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,8 +74,8 @@
 				A1E4B7732BDC06CF00D04198 /* Views */,
 				A103176E2BDAB38E003FD6D4 /* ViewModel */,
 				A103176D2BDAB37E003FD6D4 /* Interactor */,
-				A103176C2BDAB36E003FD6D4 /* Model */,
 				A18DF3302BDC096A004B2765 /* Interface */,
+				A103176C2BDAB36E003FD6D4 /* Model */,
 				A103176F2BDAB3AA003FD6D4 /* System */,
 				A10317602BDAAE79003FD6D4 /* Preview Content */,
 			);
@@ -129,6 +131,7 @@
 				A18DF3312BDC098C004B2765 /* NetworkError.swift */,
 				A1BABD222BE14642009024FE /* URL.swift */,
 				A1BABD242BE14B13009024FE /* URLSession.swift */,
+				A1DB065E2BE3F29C008B3A12 /* URLRequest.swift */,
 				A1BABD262BE15114009024FE /* NetworkInteractor.swift */,
 			);
 			name = Interface;
@@ -220,6 +223,7 @@
 				A18DF3342BDC0CA9004B2765 /* PreviewData.swift in Sources */,
 				A1BABD252BE14B13009024FE /* URLSession.swift in Sources */,
 				A103175D2BDAAE76003FD6D4 /* ContentView.swift in Sources */,
+				A1DB065F2BE3F29C008B3A12 /* URLRequest.swift in Sources */,
 				A1BABD272BE15114009024FE /* NetworkInteractor.swift in Sources */,
 				A103175B2BDAAE76003FD6D4 /* RickMortyAPIApp.swift in Sources */,
 				A1BABD232BE14642009024FE /* URL.swift in Sources */,

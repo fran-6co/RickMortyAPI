@@ -12,8 +12,8 @@ protocol NetworkInteractor {
 }
 
 extension NetworkInteractor {
-    func getJSONfromData<T>(url: URL, type: T.Type) async throws -> T where T: Codable {
-        let (data, response) = try await session.getData(url: url)
+    func getJSONfromData<T>(request: URLRequest, type: T.Type) async throws -> T where T: Codable {
+        let (data, response) = try await session.getData(request: request)
         
         guard response.statusCode == 200 else {
             throw NetworkError.badStatusCode(response.statusCode)

@@ -12,7 +12,7 @@ extension CharacterListViewModel {
 }
 
 struct TestCharacterInteractor: CharacterInteractorProtocol {
-    func fetchCharacters() async throws -> CharacterResponseDTO {
+    func fetchCharacters(page: Int) async throws -> CharacterResponseDTO {
         CharacterResponseDTO(info: Info(count: 69, pages: 420, next: "hola", prev: "hola"), results: getTestJSON())
     }
     

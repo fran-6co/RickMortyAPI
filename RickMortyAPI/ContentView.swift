@@ -14,13 +14,21 @@ struct ContentView: View {
     var body: some View {
         List {
             ForEach(vm.characters) { character in
-                Text(character.name)
+                VStack(alignment: .leading) {
+                    Text("\(character.id)")
+                    Text(character.name)
+                }
+                .onAppear {
+                    Task{
+                        vm.loadNextCharacterPage(id: character.id)
+                    }
+                }
             }
         }
     }
 }
 
 #Preview {
-//    ContentView()
-    ContentView(vm: .previewVM)
+    ContentView()
+//    ContentView(vm: .previewVM)
 }

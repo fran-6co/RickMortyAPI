@@ -8,22 +8,22 @@
 import Foundation
 
 protocol CharacterInteractorProtocol {
-    func fetchCharacters() async throws -> CharacterResponseDTO
+    func fetchCharacters(page: Int) async throws -> CharacterResponseDTO
 }
 
-struct CharacterInteractor: CharacterInteractorProtocol {
+struct CharacterInteractor: CharacterInteractorProtocol, NetworkInteractor {
+    
+    var session: URLSession
+    
     static let shared = CharacterInteractor()
     
-    private init() {}
+    private init(session: URLSession = .shared) {
+        self.session = session
+    }
     
-    func fetchCharacters() async throws -> CharacterResponseDTO {
-        let (data, response) = try await URLSession.shared.getData(url: .characterURL)
-        if response.statusCode == 200 {
-            print("Se acaba de hacer una llamada a red")
-            return try JSONDecoder().decode(CharacterResponseDTO.self, from: data)
-        } else {
-            throw NetworkError.badStatusCode(response.statusCode)
-        }
+    func fetchCharacters(page: Int) async throws -> CharacterResponseDTO {
+        try await getJSONfromData(request: .get(url: .characterURL, page: page), type: CharacterResponseDTO.self)
+//        try await getJSONfromData(url: .characterURL, type: CharacterResponseDTO.self)
     }
 }
 
