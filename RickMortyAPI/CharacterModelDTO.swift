@@ -21,7 +21,7 @@ struct Info: Codable {
 }
 
 // MARK: - Result
-struct RMCharacterDTO: Codable, Identifiable {
+struct RMCharacterDTO: Codable, Identifiable, Hashable {
     let id: Int
     let name: String
     let status: Status
@@ -32,11 +32,13 @@ struct RMCharacterDTO: Codable, Identifiable {
     let created: String
 }
 
-enum Gender: String, Codable {
-    case female = "Female"
+enum Gender: String, Codable, CaseIterable, Identifiable {
+    var id: Self { self }
+    case all = "All"
     case male = "Male"
-    case unknown = "unknown"
+    case female = "Female"
     case genderless = "Genderless"
+    case unknown = "unknown"
 }
 
 // MARK: - Location

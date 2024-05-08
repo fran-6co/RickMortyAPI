@@ -8,7 +8,7 @@
 import Foundation
 
 protocol CharacterInteractorProtocol {
-    func fetchCharacters(page: Int) async throws -> CharacterResponseDTO
+    func fetchCharacters(page: Int, name: String, gender: String) async throws -> CharacterResponseDTO
 }
 
 struct CharacterInteractor: CharacterInteractorProtocol, NetworkInteractor {
@@ -21,8 +21,8 @@ struct CharacterInteractor: CharacterInteractorProtocol, NetworkInteractor {
         self.session = session
     }
     
-    func fetchCharacters(page: Int) async throws -> CharacterResponseDTO {
-        try await getJSONfromData(request: .get(url: .characterURL, page: page), type: CharacterResponseDTO.self)
+    func fetchCharacters(page: Int, name: String, gender: String) async throws -> CharacterResponseDTO {
+        try await getJSONfromData(request: .get(url: .characterURL, page: page, name: name, gender: gender), type: CharacterResponseDTO.self)
 //        try await getJSONfromData(url: .characterURL, type: CharacterResponseDTO.self)
     }
 }

@@ -7,13 +7,31 @@
 
 import Foundation
 
+enum CharacterListViewStatus {
+    case loading, loaded
+}
+
 final class CharacterListViewModel: ObservableObject {
     
     let characterInteractor: CharacterInteractorProtocol
     
-    var characterPage = 1
-    
     @Published var characters: [RMCharacterDTO] = []
+    @Published var genderFilter: Gender = .all {
+        didSet {
+            characters.removeAll()
+            characterPage = 1
+            Task { await getCharacters() }
+        }
+    }
+    @Published var searchText = "" {
+        didSet {
+            characterPage = 1
+        }
+    }
+    
+    var isLastPage = false
+    var characterPage = 1
+    var viewStatus: CharacterListViewStatus = .loading
     
     init(characterInteractor: CharacterInteractorProtocol = CharacterInteractor.shared) {
         self.characterInteractor = characterInteractor
@@ -21,22 +39,35 @@ final class CharacterListViewModel: ObservableObject {
     }
     
     func getCharacters() async {
+        viewStatus = .loading
+        await MainActor.run {
+            if characterPage == 1 {
+                characters.removeAll()
+            }
+        }
         do {
-            let characterResult = try await characterInteractor.fetchCharacters(page: characterPage)
+            let characterResult = try await characterInteractor.fetchCharacters(page: characterPage, name: searchText, gender: genderFilter == .all ? "" : genderFilter.rawValue)
             await MainActor.run {
-                self.characters = characterResult.results
+                self.characters += characterResult.results
+                isLastPage = characterResult.info.next == nil
+                viewStatus = .loaded
             }
         } catch {
             print(error)
+            viewStatus = .loaded
         }
     }
     
-    func loadNextCharacterPage(id: Int) {
-        if characters.last?.id == id {
+    func loadNextCharacterPage(id: Int) async {
+        if characters.last?.id == id && !isLastPage {
             characterPage += 1
             Task {
                 await getCharacters()
             }
         }
+    }
+    
+    func filteredCharacters() {
+        
     }
 }

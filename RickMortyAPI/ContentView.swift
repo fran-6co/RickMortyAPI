@@ -12,17 +12,56 @@ struct ContentView: View {
     @ObservedObject var vm = CharacterListViewModel()
     
     var body: some View {
-        List {
-            ForEach(vm.characters) { character in
-                VStack(alignment: .leading) {
-                    Text("\(character.id)")
-                    Text(character.name)
+        NavigationStack {
+            Group {
+                switch vm.viewStatus {
+                    case .loading:
+                        ProgressView {
+                            Text("Connecting to multiple characters from many galaxies to your phone. Please wait.")
+                                .padding(25)
+                        }
+                        .controlSize(.extraLarge)
+                    case .loaded:
+                        List {
+                            if vm.characters.isEmpty {
+                                ContentUnavailableView("There are no matches in any galaxy for your search.", systemImage: "eye", description: Text("We are trying to find it in other galaxies but this might take a few thousand years. You may want to search for other characters meanwhile."))
+                            }
+                            ForEach(vm.characters) { character in
+                                NavigationLink(value: character) {
+                                    SingleCellView(character: character)
+                                        .onAppear {
+                                            Task{
+                                                await vm.loadNextCharacterPage(id: character.id)
+                                            }
+                                        }
+                                }
+                                
+                            }
+                        }
                 }
-                .onAppear {
-                    Task{
-                        vm.loadNextCharacterPage(id: character.id)
+            }
+            .navigationDestination(for: RMCharacterDTO.self) { character in
+                Text(character.name)
+            }
+            .navigationTitle("Rick & Morty 🥒🥒")
+        }
+        .searchable(text: $vm.searchText, prompt: "Search your character")
+        .onChange(of: vm.searchText) { oldValue, newValue in
+            Task {
+                try await Task.sleep(for: .seconds(0.5))
+                if newValue == vm.searchText {
+                    await vm.getCharacters()
+                }
+            }
+        }
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Picker("GenrePicker", selection: $vm.genderFilter) {
+                    ForEach(Gender.allCases) { filter in
+                        Text(filter.rawValue.capitalized)
                     }
                 }
+                
             }
         }
     }
@@ -30,5 +69,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-//    ContentView(vm: .previewVM)
+    //    ContentView(vm: .previewVM)
 }
