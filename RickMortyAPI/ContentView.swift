@@ -38,30 +38,34 @@ struct ContentView: View {
                                 
                             }
                         }
+                    case .error:
+                        CustomAlertView(alertDescription: "No tienes cobertura, prueba luego", alertTitle: "Esto no funciona", alertButtonTitle: "boton") {
+                            print("he pulsado")
+                        }
                 }
             }
             .navigationDestination(for: RMCharacterDTO.self) { character in
                 Text(character.name)
             }
             .navigationTitle("Rick & Morty 🥒🥒")
-        }
-        .searchable(text: $vm.searchText, prompt: "Search your character")
-        .onChange(of: vm.searchText) { oldValue, newValue in
-            Task {
-                try await Task.sleep(for: .seconds(0.5))
-                if newValue == vm.searchText {
-                    await vm.getCharacters()
-                }
-            }
-        }
-        .toolbar {
-            ToolbarItem(placement: .topBarTrailing) {
-                Picker("GenrePicker", selection: $vm.genderFilter) {
-                    ForEach(Gender.allCases) { filter in
-                        Text(filter.rawValue.capitalized)
+            .searchable(text: $vm.searchText, prompt: "Search your character")
+            .onChange(of: vm.searchText) { oldValue, newValue in
+                Task {
+                    try await Task.sleep(for: .seconds(0.5))
+                    if newValue == vm.searchText {
+                        await vm.getCharacters()
                     }
                 }
-                
+            }
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Picker("GenrePicker", selection: $vm.genderFilter) {
+                        ForEach(Gender.allCases) { filter in
+                            Text(filter.rawValue.capitalized)
+                        }
+                    }
+                    
+                }
             }
         }
     }

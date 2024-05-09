@@ -8,7 +8,7 @@
 import Foundation
 
 enum CharacterListViewStatus {
-    case loading, loaded
+    case loading, loaded, error
 }
 
 final class CharacterListViewModel: ObservableObject {
@@ -16,6 +16,7 @@ final class CharacterListViewModel: ObservableObject {
     let characterInteractor: CharacterInteractorProtocol
     
     @Published var characters: [RMCharacterDTO] = []
+    @Published var viewStatus: CharacterListViewStatus = .loading
     @Published var genderFilter: Gender = .all {
         didSet {
             characters.removeAll()
@@ -31,16 +32,31 @@ final class CharacterListViewModel: ObservableObject {
     
     var isLastPage = false
     var characterPage = 1
-    var viewStatus: CharacterListViewStatus = .loading
     
     init(characterInteractor: CharacterInteractorProtocol = CharacterInteractor.shared) {
         self.characterInteractor = characterInteractor
         Task { await getCharacters() }
     }
     
+//    func getCharacters() async {
+//        viewStatus = .loading
+//        if characterPage == 1 {
+//            characters.removeAll()
+//        }
+//        do {
+//            let characterResult = try await characterInteractor.fetchCharacters(page: characterPage, name: searchText, gender: genderFilter == .all ? "" : genderFilter.rawValue)
+//            self.characters += characterResult.results
+//            isLastPage = characterResult.info.next == nil
+//            viewStatus = .loaded
+//        } catch {
+//            print(error)
+//                viewStatus = .loaded
+//        }
+//    }
+    
     func getCharacters() async {
-        viewStatus = .loading
         await MainActor.run {
+            viewStatus = .loading
             if characterPage == 1 {
                 characters.removeAll()
             }
@@ -54,7 +70,9 @@ final class CharacterListViewModel: ObservableObject {
             }
         } catch {
             print(error)
-            viewStatus = .loaded
+            await MainActor.run {
+                viewStatus = .loaded
+            }
         }
     }
     
