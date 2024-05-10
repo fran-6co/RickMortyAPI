@@ -30,8 +30,12 @@ struct CustomAlertView: View {
                     alertAction()
                 } label: {
                     Text(alertButtonTitle)
+                        .foregroundStyle(.white)
+                        .bold()
+                        .padding()
                 }
-                .buttonBorderShape(.roundedRectangle)
+//                .buttonBorderShape(.roundedRectangle)
+                .background(RoundedRectangle(cornerRadius: 20).foregroundStyle(.blue))
 
             }
         }

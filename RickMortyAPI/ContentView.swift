@@ -40,7 +40,7 @@ struct ContentView: View {
                         }
                     case .error:
                         CustomAlertView(alertDescription: "No tienes cobertura, prueba luego", alertTitle: "Esto no funciona", alertButtonTitle: "boton") {
-                            print("he pulsado")
+                            vm.viewStatus = .loaded
                         }
                 }
             }

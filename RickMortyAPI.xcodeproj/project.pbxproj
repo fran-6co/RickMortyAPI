@@ -14,6 +14,7 @@
 		A10317692BDAAF04003FD6D4 /* CharacterModelDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10317682BDAAF04003FD6D4 /* CharacterModelDTO.swift */; };
 		A103176B2BDAB369003FD6D4 /* CharacterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A103176A2BDAB369003FD6D4 /* CharacterInteractor.swift */; };
 		A13057B72BDBFB64007B359D /* CharacterListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A13057B62BDBFB64007B359D /* CharacterListViewModel.swift */; };
+		A1392DC92BEE73CB0022A0F8 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1392DC82BEE73CB0022A0F8 /* ImageDownloader.swift */; };
 		A14D58172BED2FD80096DF26 /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14D58162BED2FD80096DF26 /* CustomAlertView.swift */; };
 		A18AE31E2BE5444C00D04B45 /* SingleCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18AE31D2BE5444C00D04B45 /* SingleCellView.swift */; };
 		A18DF3322BDC098C004B2765 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18DF3312BDC098C004B2765 /* NetworkError.swift */; };
@@ -34,6 +35,7 @@
 		A10317682BDAAF04003FD6D4 /* CharacterModelDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModelDTO.swift; sourceTree = "<group>"; };
 		A103176A2BDAB369003FD6D4 /* CharacterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInteractor.swift; sourceTree = "<group>"; };
 		A13057B62BDBFB64007B359D /* CharacterListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListViewModel.swift; sourceTree = "<group>"; };
+		A1392DC82BEE73CB0022A0F8 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		A14D58162BED2FD80096DF26 /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		A18AE31D2BE5444C00D04B45 /* SingleCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCellView.swift; sourceTree = "<group>"; };
 		A18DF3312BDC098C004B2765 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				A103176A2BDAB369003FD6D4 /* CharacterInteractor.swift */,
+				A1392DC82BEE73CB0022A0F8 /* ImageDownloader.swift */,
 			);
 			name = Interactor;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 			files = (
 				A13057B72BDBFB64007B359D /* CharacterListViewModel.swift in Sources */,
 				A14D58172BED2FD80096DF26 /* CustomAlertView.swift in Sources */,
+				A1392DC92BEE73CB0022A0F8 /* ImageDownloader.swift in Sources */,
 				A103176B2BDAB369003FD6D4 /* CharacterInteractor.swift in Sources */,
 				A10317692BDAAF04003FD6D4 /* CharacterModelDTO.swift in Sources */,
 				A18DF3322BDC098C004B2765 /* NetworkError.swift in Sources */,

@@ -71,7 +71,11 @@ final class CharacterListViewModel: ObservableObject {
         } catch {
             print(error)
             await MainActor.run {
-                viewStatus = .loaded
+                if searchText.isEmpty{
+                    viewStatus = .error
+                } else {
+                    viewStatus = .loaded
+                }
             }
         }
     }
