@@ -20,6 +20,7 @@ struct CustomAlertView: View {
                 .scaledToFit()
                 .frame(height: 150)
                 .foregroundStyle(.yellow)
+                .shadow(radius: 25)
             Text(alertTitle)
                 .font(.largeTitle)
                 .bold()
@@ -38,13 +39,14 @@ struct CustomAlertView: View {
                 .background(RoundedRectangle(cornerRadius: 20).foregroundStyle(.blue))
 
             }
+            .padding(5)
         }
         .padding(20)
         .background{
             Color.gray
-                .opacity(0.3)
+                .opacity(0.45)
         }
-        .clipShape(RoundedRectangle(cornerRadius: 10))
+        .clipShape(RoundedRectangle(cornerRadius: 30))
     }
 }
 

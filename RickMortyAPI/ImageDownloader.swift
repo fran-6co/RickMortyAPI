@@ -12,13 +12,13 @@ actor ImageDownloader {
     static let shared = ImageDownloader()
     
     private enum ImageStatus {
-        case downloading(task: Task<UIImage, Error>)
+        case downloadPending(task: Task<UIImage, Error>)
         case downloaded(image: UIImage)
     }
     
     private var imageCache: [URL: ImageStatus] = [:]
     
-    func getImage(url: URL) async throws -> UIImage {
+    private func getImage(url: URL) async throws -> UIImage {
         let (data, _) = try await URLSession.shared.data(from: url)
         if let image = UIImage(data: data){
             return image
@@ -30,7 +30,7 @@ actor ImageDownloader {
     func image(url: URL) async throws -> UIImage {
         if let imageStatus = imageCache[url] {
             switch imageStatus {
-                case .downloading(let task):
+                case .downloadPending(let task):
                     return try await task.value
                 case .downloaded(let image):
                     return image
@@ -39,8 +39,8 @@ actor ImageDownloader {
         let task = Task {
             try await getImage(url: url)
         }
-        
-        imageCache[url] = .downloading(task: task)
+                // RICK URL                     [RICK URL : .PENDING( TASK GET IMAGE )]
+        imageCache[url] = .downloadPending(task: task)
         
         do {
             let image = try await task.value
@@ -60,10 +60,11 @@ actor ImageDownloader {
         print("Se ha creado una url para cache: \(cacheDirectory)")
         
         if case .downloaded(let image) = imageStatus {
+            //se podría controlar el tamaño
+//            let resize = await image.byPreparingThumbnail(ofSize: CGSize(width: 300, height: 300))
             let data = image.heicData()
             try data?.write(to: cacheDirectory, options: .atomic)
             imageCache.removeValue(forKey: url)
         }
-
     }
 }

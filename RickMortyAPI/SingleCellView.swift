@@ -12,6 +12,7 @@ struct SingleCellView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
+            AvatarView(character: character)
             Text("\(character.id)")
             Text(character.name)
         }
