@@ -45,7 +45,7 @@ struct ContentView: View {
                 }
             }
             .navigationDestination(for: RMCharacterDTO.self) { character in
-                Text(character.name)
+                DetailView(character: character)
             }
             .navigationTitle("Rick & Morty 🥒🥒")
             .searchable(text: $vm.searchText, prompt: "Search your character")

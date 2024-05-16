@@ -56,8 +56,8 @@ final class CharacterListViewModel: ObservableObject {
     
     func getCharacters() async {
         await MainActor.run {
-            viewStatus = .loading
             if characterPage == 1 {
+                viewStatus = .loading
                 characters.removeAll()
             }
         }

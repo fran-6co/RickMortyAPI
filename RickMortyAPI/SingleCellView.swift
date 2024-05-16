@@ -11,15 +11,24 @@ struct SingleCellView: View {
     let character: RMCharacterDTO
     
     var body: some View {
-        VStack(alignment: .leading) {
+        HStack {
             AvatarView(character: character)
-            Text("\(character.id)")
-            Text(character.name)
+            VStack(alignment: .leading) {
+                Text(character.name)
+                    .bold()
+                Text("id: \(character.id)")
+                    .font(.caption)
+                    .italic()
+                    .padding(.horizontal)
+            }
+            .padding()
         }
         
     }
 }
 
 #Preview {
-    SingleCellView(character: .previewRMCharacter)
+    List {
+        SingleCellView(character: .previewRMCharacter)
+    }
 }

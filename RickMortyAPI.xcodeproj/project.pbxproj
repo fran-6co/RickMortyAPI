@@ -22,6 +22,9 @@
 		A18DF3322BDC098C004B2765 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18DF3312BDC098C004B2765 /* NetworkError.swift */; };
 		A18DF3342BDC0CA9004B2765 /* PreviewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18DF3332BDC0CA9004B2765 /* PreviewData.swift */; };
 		A18DF3362BDC101E004B2765 /* RYM.json in Resources */ = {isa = PBXBuildFile; fileRef = A18DF3352BDC101E004B2765 /* RYM.json */; };
+		A18F88152BF50CFB002C2C05 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18F88142BF50CFB002C2C05 /* DetailView.swift */; };
+		A18F88172BF516DA002C2C05 /* RMTrailer.json in Resources */ = {isa = PBXBuildFile; fileRef = A18F88162BF516D9002C2C05 /* RMTrailer.json */; };
+		A18F88192BF53F2E002C2C05 /* YouTubeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A18F88182BF53F2E002C2C05 /* YouTubeView.swift */; };
 		A1BABD232BE14642009024FE /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BABD222BE14642009024FE /* URL.swift */; };
 		A1BABD252BE14B13009024FE /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BABD242BE14B13009024FE /* URLSession.swift */; };
 		A1BABD272BE15114009024FE /* NetworkInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1BABD262BE15114009024FE /* NetworkInteractor.swift */; };
@@ -45,6 +48,9 @@
 		A18DF3312BDC098C004B2765 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		A18DF3332BDC0CA9004B2765 /* PreviewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewData.swift; sourceTree = "<group>"; };
 		A18DF3352BDC101E004B2765 /* RYM.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RYM.json; sourceTree = "<group>"; };
+		A18F88142BF50CFB002C2C05 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		A18F88162BF516D9002C2C05 /* RMTrailer.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = RMTrailer.json; sourceTree = "<group>"; };
+		A18F88182BF53F2E002C2C05 /* YouTubeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeView.swift; sourceTree = "<group>"; };
 		A1BABD222BE14642009024FE /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		A1BABD242BE14B13009024FE /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
 		A1BABD262BE15114009024FE /* NetworkInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkInteractor.swift; sourceTree = "<group>"; };
@@ -132,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				A103175A2BDAAE76003FD6D4 /* RickMortyAPIApp.swift */,
+				A18F88162BF516D9002C2C05 /* RMTrailer.json */,
 				A103175E2BDAAE79003FD6D4 /* Assets.xcassets */,
 			);
 			name = System;
@@ -149,13 +156,23 @@
 			name = Interface;
 			sourceTree = "<group>";
 		};
+		A18F881A2BF53F33002C2C05 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A18F88182BF53F2E002C2C05 /* YouTubeView.swift */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
 		A1E4B7732BDC06CF00D04198 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				A103175C2BDAAE76003FD6D4 /* ContentView.swift */,
+				A18F88142BF50CFB002C2C05 /* DetailView.swift */,
 				A14D58162BED2FD80096DF26 /* CustomAlertView.swift */,
 				A18AE31D2BE5444C00D04B45 /* SingleCellView.swift */,
 				A12AC5B82BF3C1B5003AE27B /* AvatarView.swift */,
+				A18F881A2BF53F33002C2C05 /* Components */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -201,6 +218,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = A103174E2BDAAE76003FD6D4;
 			productRefGroup = A10317582BDAAE76003FD6D4 /* Products */;
@@ -217,6 +235,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A18F88172BF516DA002C2C05 /* RMTrailer.json in Resources */,
 				A18DF3362BDC101E004B2765 /* RYM.json in Resources */,
 				A10317622BDAAE79003FD6D4 /* Preview Assets.xcassets in Resources */,
 				A103175F2BDAAE79003FD6D4 /* Assets.xcassets in Resources */,
@@ -232,6 +251,8 @@
 			files = (
 				A13057B72BDBFB64007B359D /* CharacterListViewModel.swift in Sources */,
 				A14D58172BED2FD80096DF26 /* CustomAlertView.swift in Sources */,
+				A18F88192BF53F2E002C2C05 /* YouTubeView.swift in Sources */,
+				A18F88152BF50CFB002C2C05 /* DetailView.swift in Sources */,
 				A1392DC92BEE73CB0022A0F8 /* ImageDownloader.swift in Sources */,
 				A103176B2BDAB369003FD6D4 /* CharacterInteractor.swift in Sources */,
 				A10317692BDAAF04003FD6D4 /* CharacterModelDTO.swift in Sources */,
