@@ -13,10 +13,15 @@ struct SingleCellView: View {
     var body: some View {
         HStack {
             AvatarView(character: character)
+                .shadow(radius: 3, x: 3, y: 3)
             VStack(alignment: .leading) {
                 Text(character.name)
                     .bold()
-                Text("id: \(character.id)")
+                Group{
+                    Text("Type: \(character.species)")
+                    Text("Gender: \(character.gender)")
+                    Text("Status: \(character.status)")
+                }
                     .font(.caption)
                     .italic()
                     .padding(.horizontal)

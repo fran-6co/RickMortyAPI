@@ -18,12 +18,21 @@ struct DetailView: View {
             Button {
                 showSheet.toggle()
             } label: {
-                Text("Show trailer")
+                Group {
+                    Text("Show TRAILER")
+                    Image(systemName: "popcorn")
+                        .font(.title2)
+                }
+                .bold()
             }
+            .controlSize(.large)
+            .tint(.green)
+            .buttonStyle(.bordered)
+            .buttonBorderShape(.roundedRectangle)
         }
         .sheet(isPresented: $showSheet) {
             YouTubeView()
-                .presentationDetents([.fraction(0.15), .large])
+                .presentationDetents([.fraction(0.25), .large])
         }
     }
 }
