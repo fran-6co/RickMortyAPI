@@ -30,12 +30,11 @@ struct ContentView: View {
                                 NavigationLink(value: character) {
                                     SingleCellView(character: character)
                                         .onAppear {
-                                            Task{
+                                            Task {
                                                 await vm.loadNextCharacterPage(id: character.id)
                                             }
                                         }
                                 }
-                                
                             }
                         }
                     case .error:
@@ -64,7 +63,6 @@ struct ContentView: View {
                             Text(filter.rawValue.capitalized)
                         }
                     }
-                    
                 }
             }
         }

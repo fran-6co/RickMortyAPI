@@ -8,13 +8,36 @@
 import SwiftUI
 
 struct DetailView: View {
-    //    @Environment(\.dismiss) private var dismiss
+    @ObservedObject var vm = AvatarViewModel()
+    
     let character: RMCharacterDTO
     @State var showSheet: Bool = false
     
     var body: some View {
         VStack {
+            Spacer()
+            Group {
+                if let image = vm.image{
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 200)
+                        .clipShape(RoundedRectangle(cornerRadius: 25))
+                } else {
+                    ProgressView()
+                        .frame(height: 200)
+                }
+            }
+            .padding(30)
+            .shadow(radius: 10, x: 5, y: 5)
+            .onAppear {
+                vm.getImage(url: character.image)
+            }
+            
             Text(character.name)
+                .bold()
+                .font(.title)
+            Spacer()
             Button {
                 showSheet.toggle()
             } label: {
@@ -29,6 +52,10 @@ struct DetailView: View {
             .tint(.green)
             .buttonStyle(.bordered)
             .buttonBorderShape(.roundedRectangle)
+            Text("Open a sheet with the trailer in Youtube.")
+                .font(.caption)
+                .opacity(0.5)
+                .italic()
         }
         .sheet(isPresented: $showSheet) {
             YouTubeView()

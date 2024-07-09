@@ -19,7 +19,6 @@ struct AvatarView: View {
                     .scaledToFit()
                     .frame(height: 100)
                     .clipShape(RoundedRectangle(cornerRadius: 8))
-//                    .shadow(radius: 8)
             } else {
                 Image(systemName: "popcorn")
             }
