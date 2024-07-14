@@ -38,20 +38,8 @@ struct DetailView: View {
                 .bold()
                 .font(.title)
             Spacer()
-            Button {
-                showSheet.toggle()
-            } label: {
-                Group {
-                    Text("Show TRAILER")
-                    Image(systemName: "popcorn")
-                        .font(.title2)
-                }
-                .bold()
-            }
-            .controlSize(.large)
-            .tint(.green)
-            .buttonStyle(.bordered)
-            .buttonBorderShape(.roundedRectangle)
+            ShowTrailerButton(showSheet: $showSheet)
+                .sensoryFeedback(showSheet ? .selection : .success, trigger: showSheet)
             Text("Open a sheet with the trailer in Youtube.")
                 .font(.caption)
                 .opacity(0.5)
