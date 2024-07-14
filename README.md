@@ -18,7 +18,7 @@ The main view shows you a complete list of characters, you cand find and filter 
 
 This project is built with MVVM, an architecture that separates presentation logic (View) from business logic (ViewModel) and data (Model). 
 
-- **Model:** Defines the data retrieved, in this case, the characters from the TV series, and performs the API call. The model handles and structures the data so that it can be easily used by the ViewModel. In this app, the model includes the data structures for the characters as well as the functions for making requests to the [Rick&MortyAPI](https://rickandmortyapi.com/).
+- **Model:** Defines the data retrieved, in this case, the characters from the TV series, and performs the API call. The model handles and structures the data so that it can be easily used by the ViewModel. In this app, the model includes the data structures for the characters as well as the functions for making requests to the Rick&MortyAPI.
 - **ViewModel:** Acts as an intermediary between the model and the view. It transforms the model data into a format that the view can present. Additionally, the ViewModel handles business logic and the state of the user interface. In this application, the ViewModel manages retrieving the character data, handling the image cache, and implementing filtering and searching logic.
 - **View:** The view is responsible for the visual presentation of the data and user interaction. In iOS, this is implemented using views and view controllers (UIView and UIViewController). The view observes changes in the ViewModel and updates itself automatically when the data changes. In this application, the view includes a list of characters with the ability to filter by genre and navigate to detailed views of each character.
 
