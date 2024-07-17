@@ -12,6 +12,12 @@ struct DetailView: View {
     
     let character: RMCharacterDTO
     @State var showSheet: Bool = false
+    var date: Date {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        return formatter.date(from: character.created) ?? .now
+    }
+    let dcf = DateComponentsFormatter()
     
     var body: some View {
         VStack {
@@ -37,6 +43,47 @@ struct DetailView: View {
             Text(character.name)
                 .bold()
                 .font(.title)
+            
+            GroupBox {
+                HStack {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Gender:")
+                        Text("Species:")
+                        Text("Status:")
+                    }
+                    .bold()
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("\(character.gender.rawValue)")
+                        Text("\(character.species.rawValue)")
+                        Text("\(character.status.rawValue)")
+                    }
+                    .fontWeight(.light)
+                }
+            }
+            .padding(5)
+            
+            GroupBox {
+                Text("First appearence on:")
+                    .font(.title2)
+                    .padding(.horizontal)
+                    .padding(.bottom)
+                HStack {
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Date:")
+                        Text("Time:")
+                    }
+                    .bold()
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("\(date.formatted(date: .abbreviated, time: .omitted))")
+                        Text("\(date.formatted(date: .omitted, time: .shortened))")
+                    }
+                }
+                .padding(.bottom, 8)
+                Text("How much time ago:")
+                    .bold()
+                Text("\(dcf.string(from: date, to: .now) ?? "")")
+            }
+            .opacity(0.3)
             Spacer()
             ShowTrailerButton(showSheet: $showSheet)
                 .sensoryFeedback(showSheet ? .selection : .success, trigger: showSheet)
