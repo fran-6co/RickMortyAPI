@@ -11,6 +11,7 @@ struct PageViewUIKitController<Page : View>: UIViewControllerRepresentable {
 //    typealias UIViewControllerType = <#type#>
     var pages: [Page]
     @Binding var currentPage: Int
+    var backgroundColor: UIColor?
     
     func makeUIViewController(context: Context) -> UIPageViewController {
         let pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
@@ -34,8 +35,13 @@ struct PageViewUIKitController<Page : View>: UIViewControllerRepresentable {
         var controllers = [UIViewController]()
         
         init(_ pageViewController: PageViewUIKitController) {
-            parent = pageViewController
-            controllers = parent.pages.map { UIHostingController(rootView: $0) }
+            self.parent = pageViewController
+            self.controllers = pageViewController.pages.map { page in
+                let hostingController = UIHostingController(rootView: page)
+                hostingController.view.backgroundColor = pageViewController.backgroundColor
+                return hostingController
+            }
+            super.init()
         }
         
         func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {

@@ -29,8 +29,6 @@ struct PageView: View {
             Text("Page viewer simple")
             ZStack (alignment: .bottom){
                 PageViewUIKitController(pages: imageNames.map { Page(name: $0) }, currentPage: $currentPage)
-                    .background{ Color.mint.opacity(0.5) }
-//                    .padding()
                 PageControl(numberOfPages: imageNames.map{ Page(name: $0) }.count, currentPage: $currentPage)
                     .frame(width: CGFloat(imageNames.map{ Page(name: $0) }.count * 18)) //makes width according to what should measure each dot times how many dots.
             }
